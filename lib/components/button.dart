@@ -22,7 +22,7 @@ class Button extends StatelessWidget {
     Key? key,
     required this.text,
     this.big = true,
-    this.color = operationColor,
+    this.color = defaultColor,
     required this.cb,
   }) : super(key: key);
 
@@ -30,13 +30,14 @@ class Button extends StatelessWidget {
     Key? key,
     required this.text,
     this.big = false,
-    this.color = defaultColor,
+    this.color = operationColor,
     required this.cb,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: big ? 2 : 1,
       child: ElevatedButton(
         onPressed: () => cb(text),
         style: ElevatedButton.styleFrom(
